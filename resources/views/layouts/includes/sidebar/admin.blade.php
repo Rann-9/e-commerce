@@ -15,8 +15,8 @@
         </a>
         <ul id="components-nav" class="nav-content {{ request()->routeIs('admin.category.*') ? 'show' : '' }} collapse" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{ route('admin.category.index') }}">
-              <i class="{{ request()->routeIs('admin.category.*') ? 'active' : '' }}"></i><span>Category</span>
+            <a href="{{ route('admin.category.index') }}" class="{{ request()->routeIs('admin.category.*') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Category</span>
             </a>
           </li>
           <li>
