@@ -1,6 +1,6 @@
 @extends('layouts.parent')
 
-@section('title')
+@section('title', 'Data Category')
 
 @section('content')
     <div class="card">
