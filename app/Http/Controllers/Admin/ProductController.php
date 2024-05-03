@@ -104,7 +104,7 @@ class ProductController extends Controller
             $product->update($data);
 
             // dd($product);
-            return redirect()->route('admin.product.index')->with('success', 'Product add successfully');
+            return redirect()->route('admin.product.index')->with('success', 'Product updated successfully');
 
         } catch (Exception $e) {
             dd($e->getMessage());
@@ -124,7 +124,7 @@ class ProductController extends Controller
 
             $product->delete();
 
-            return redirect()->back()->with('success', 'product deleted');
+            return redirect()->back()->with('success', 'Product deleted successfully');
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Failed to delete');
         }
