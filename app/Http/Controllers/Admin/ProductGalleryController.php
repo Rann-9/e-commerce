@@ -39,7 +39,9 @@ class ProductGalleryController extends Controller
      */
     public function store(Request $request)
     {
-        this 
+        $this->validate($request, [
+            'image' => 'required|image'
+        ]);
     }
 
     /**
