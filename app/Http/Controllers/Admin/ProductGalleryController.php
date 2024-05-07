@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Exception;
 use id;
 
 class ProductGalleryController extends Controller
@@ -20,7 +21,7 @@ class ProductGalleryController extends Controller
         // dd($product, $gallery);
         // dd($product);
 
-        return view('pages.admin.product.gallery.index', compact (
+        return view('pages.admin.product.gallery.index', compact(
             'product',
             'gallery'
         ));
@@ -37,11 +38,20 @@ class ProductGalleryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, string $id)
     {
         $this->validate($request, [
             'image' => 'required|image'
         ]);
+
+        try {
+            $product = Product::findOrFail($id);
+            $image = $request->file('image');
+            $image->storeAs('public/product/{$product');
+        } catch (Exception $e) {
+            dd($e->getMessage());
+            return redirect()->route('admin.product.gallery.index', $id)->with('error', 'Failed to upload image');
+        }
     }
 
     /**
