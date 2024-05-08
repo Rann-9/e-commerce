@@ -17,6 +17,10 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
                 <i class="bi bi-plus"></i> Product Gallery
             </button>
+
+            <a href="{{ route('admin.product.index') }}" class="btn btn-primary">
+                <i class="bi bi-arrow-left"></i> Back
+            </a>
             @include('pages.admin.product.gallery.modal-create')
 
             <table class="table">
@@ -28,11 +32,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>No</td>
-                        <td>Image</td>
-                        <td>Action</td>
-                    </tr>
+                    @forelse ($product->product_galleries as $row)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>
+                                <img src="{{ asset('storage/product/gallery/' . $row->image) }}" alt=""
+                                    class="img-thumbnail" width="100">
+                            </td>
+                            <td>
+                                <form action="{{ route('admin.product.gallery.destroy', [$product->id, $row->id]) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger d-inline" type="submit">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3" class="text-center">Data not found</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

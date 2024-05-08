@@ -3,5 +3,6 @@
 @section('title', 'Dashboard - Home')
 
 @section('content')
-    Hello {{ Auth::user()->name }}
+    <h1>User</h1>
+    <p>This is user page.</p>
 @endsection
