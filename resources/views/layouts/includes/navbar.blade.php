@@ -196,10 +196,18 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                        @if (auth()->user()->role == 'admin')
+                        <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.changePassword') }}">
                             <i class="bi bi-gear"></i>
-                            <span>Account Settings</span>
+                            <span>Change Password</span>
                         </a>
+                        @else
+                            <a class="dropdown-item d-flex align-items-center"
+                                href="{{ route('user.changePassword') }}">
+                                <i class="bi bi-gear"></i>
+                                <span>Change Password</span>
+                            </a>
+                        @endif
                     </li>
                     <li>
                         <hr class="dropdown-divider">
@@ -217,7 +225,7 @@
 
                     <li>
                         <form action="{{ route('logout') }}" method="post">
-                          @csrf
+                            @csrf
                             <button class="dropdown-item d-flex align-items-center" type="submit">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
