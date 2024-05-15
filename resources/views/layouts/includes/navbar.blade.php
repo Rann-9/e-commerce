@@ -196,18 +196,11 @@
                     </li>
 
                     <li>
-                        @if (auth()->user()->role == 'admin')
-                        <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.changePassword') }}">
-                            <i class="bi bi-gear"></i>
-                            <span>Change Password</span>
-                        </a>
-                        @else
-                            <a class="dropdown-item d-flex align-items-center"
+                        <a class="dropdown-item d-flex align-items-center"
                                 href="{{ route('user.changePassword') }}">
                                 <i class="bi bi-gear"></i>
                                 <span>Change Password</span>
                             </a>
-                        @endif
                     </li>
                     <li>
                         <hr class="dropdown-divider">

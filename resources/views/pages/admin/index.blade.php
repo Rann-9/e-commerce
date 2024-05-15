@@ -40,6 +40,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-4">
                 <div class="card info-card sales-card">
                     {{-- Product Card --}}

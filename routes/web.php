@@ -25,13 +25,11 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
     Route::put('/list-user/{id}', [DashboardController::class, 'resetPassword'])->name('resetPassword');
     Route::resource('/my-transaction', MyTransactionController::class)->only(['index', 'show']);
     Route::resource('/transaction', TransactionController::class);
-    Route::get('/change-password', [\App\Http\Controllers\Admin\DashboardController::class, 'changePassword'])->name('changePassword');
-    Route::put('/update-password', [DashboardController::class, 'updatePassword'])->name('update-password');
 });
 
 Route::name('user.')->prefix('user')->middleware('user')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/change-password', [\App\Http\Controllers\Admin\DashboardController::class, 'changePassword'])->name('changePassword');
+    Route::get('/change-password', [\App\Http\Controllers\User\DashboardController::class, 'changePassword'])->name('changePassword');
     Route::put('/update-password', [DashboardController::class, 'updatePassword'])->name('update-password');
     Route::resource('/my-transaction', MyTransactionController::class)->only(['index', 'show']);
 });

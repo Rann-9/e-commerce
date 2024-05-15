@@ -13,14 +13,14 @@
     <meta property="og:image" content="" />
 
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="apple-touch-icon" href="images/content/favicon.png" />
+    <link rel="apple-touch-icon" href="{{ asset('frontend/images/content/favicon.png') }}" />
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="icon" href="images/content/favicon.png" />
+    <link rel="stylesheet" href="{{ asset('frontend/./css/main.css') }}" />
+    <link rel="icon" href="{{ asset('fontedn/images/content/favicon.png') }}" />
 
     <meta name="theme-color" content="#000" />
-  <link rel="icon" href="favicon.ico"><link href="css/app.minify.css" rel="stylesheet"></head>
+  <link rel="icon" href="{{ asset('frontend/favicon.ico') }}"><link href="{{ asset('frontend/css/app.minify.css') }}" rel="stylesheet"></head>
 
   <body>
     <!-- Add your site or application content here -->
@@ -31,7 +31,7 @@
         <div class="flex flex-stretch items-center">
           <div class="w-56 items-center flex">
             <img
-              src="images/content/logo.png"
+              src="{{ asset('frontend/images/content/logo.png') }}"
               alt="Luxspace | Fulfill your house with beautiful furniture"
             />
           </div>
@@ -92,7 +92,7 @@
                 <a
                   id="header-cart"
                   class="flex items-center justify-center w-8 h-8 text-black md:text-white"
-                  href="cart.html"
+                  href="{{ asset('frontend/cart.html') }}"
                 >
                   <svg
                     class="fill-current"
@@ -167,7 +167,7 @@
             ></button>
           </div>
           <img
-            src="images/content/image-section-1.png"
+            src="{{ asset('frontend/images/content/image-section-1.png') }}"
             alt="hero 1"
             class="absolute inset-0 md:relative w-full h-full object-cover object-center"
           />
@@ -191,7 +191,7 @@
           >
             <div class="card-shadow rounded-xl">
               <img
-                src="./images/content/image-catalog-1.png"
+                src="{{ asset('frontend/./images/content/image-catalog-1.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
               />
@@ -202,7 +202,7 @@
               <h5 class="text-lg font-semibold">Living Room</h5>
               <span class="">18.309 items</span>
             </div>
-            <a href="details.html" class="stretched-link">
+            <a href="{{ asset('frontend/details.html') }}" class="stretched-link">
               <!-- fake children -->
             </a>
           </div>
@@ -211,7 +211,7 @@
           >
             <div class="card-shadow rounded-xl">
               <img
-                src="./images/content/image-catalog-3.png"
+                src="{{ asset('frontend/./images/content/image-catalog-3.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
               />
@@ -231,7 +231,7 @@
           >
             <div class="card-shadow rounded-xl">
               <img
-                src="./images/content/image-catalog-4.png"
+                src="{{ asset('frontend/./images/content/image-catalog-4.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
               />
@@ -249,7 +249,7 @@
           <div class="relative col-span-9 row-span-1 md:col-span-4 card">
             <div class="card-shadow rounded-xl">
               <img
-                src="./images/content/image-catalog-2.png"
+                src="{{ asset('frontend/./images/content/image-catalog-2.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
               />
@@ -312,7 +312,7 @@
                 </div>
               </div>
               <img
-                src="./images/content/image-arrived-1.png"
+                src="{{ asset('frontend/./images/content/image-arrived-1.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center"
               />
@@ -355,7 +355,7 @@
                 </div>
               </div>
               <img
-                src="./images/content/image-arrived-2.png"
+                src="{{ asset('frontend/./images/content/image-arrived-2.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center"
               />
@@ -398,7 +398,7 @@
                 </div>
               </div>
               <img
-                src="./images/content/image-arrived-3.png"
+                src="{{ asset('frontend/./images/content/image-arrived-3.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center"
               />
@@ -441,7 +441,7 @@
                 </div>
               </div>
               <img
-                src="./images/content/image-arrived-4.png"
+                src="{{ asset('frontend/./images/content/image-arrived-4.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center"
               />
@@ -484,7 +484,7 @@
                 </div>
               </div>
               <img
-                src="./images/content/image-arrived-5.png"
+                src="{{ asset('frontend/./images/content/image-arrived-5.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center"
               />
@@ -527,7 +527,7 @@
                 </div>
               </div>
               <img
-                src="./images/content/image-arrived-3.png"
+                src="{{ asset('frontend/./images/content/image-arrived-3.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center"
               />
@@ -570,7 +570,7 @@
                 </div>
               </div>
               <img
-                src="./images/content/image-arrived-1.png"
+                src="{{ asset('frontend/./images/content/image-arrived-1.png') }}"
                 alt=""
                 class="w-full h-full object-cover object-center"
               />
@@ -594,18 +594,18 @@
         <div
           class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0"
         >
-          <img src="./images/content/logo-adobe.svg" alt="" class="mx-auto" />
+          <img src="{{ asset('frontend/./images/content/logo-adobe.svg') }}" alt="" class="mx-auto" />
         </div>
         <div
           class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0"
         >
-          <img src="./images/content/logo-ikea.svg" alt="" class="mx-auto" />
+          <img src="{{ asset('frontend/./images/content/logo-ikea.svg') }}" alt="" class="mx-auto" />
         </div>
         <div
           class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0"
         >
           <img
-            src="./images/content/logo-hermanmiller.svg"
+            src="{{ asset('frontend/./images/content/logo-hermanmiller.svg') }}"
             alt=""
             class="mx-auto"
           />
@@ -613,7 +613,7 @@
         <div
           class="w-full flex-auto md:w-auto md:flex-initial px-4 md:px-6 my-4 md:my-0"
         >
-          <img src="./images/content/logo-miele.svg" alt="" class="mx-auto" />
+          <img src="{{ asset('frontend/./images/content/logo-miele.svg') }}" alt="" class="mx-auto" />
         </div>
       </div>
     </section>
@@ -624,7 +624,7 @@
       <div class="border-t border-b border-gray-200 py-12 mt-16 px-4">
         <div class="flex justify-center mb-8">
           <img
-            src="images/content/logo.png"
+            src="{{ asset('frontend/images/content/logo.png') }}"
             alt="Luxspace | Fulfill your house with beautiful furniture"
           />
         </div>
@@ -742,5 +742,5 @@
       ga("send", "pageview");
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async></script>
-  <script src="js/app.js"></script></body>
+  <script src="{{ asset('frontend/js/app.js') }}"></script></body>
 </html>
