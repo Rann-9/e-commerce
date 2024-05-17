@@ -9,8 +9,11 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\MyTransactionController;
 use App\Http\Controllers\Admin\ProductGalleryController;
+use App\Http\Controllers\FrontEnd\FrontEndController;
 
 Route::get('/', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'index']);
+Route::get('/detail-product/{slug}', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'detailProduct'])->name('detail.product');
+Route::get('/detail-category/{slug}', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'detailCategory'])->name('detail.category');
 
 Auth::routes();
 

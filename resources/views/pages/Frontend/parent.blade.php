@@ -17,7 +17,7 @@
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="{{ asset('frontend/./css/main.css') }}" />
-    <link rel="icon" href="{{ asset('fontedn/images/content/favicon.png') }}" />
+    <link rel="icon" href="{{ asset('frontedn/images/content/favicon.png') }}" />
 
     <meta name="theme-color" content="#000" />
   <link rel="icon" href="{{ asset('frontend/favicon.ico') }}"><link href="{{ asset('frontend/css/app.minify.css') }}" rel="stylesheet"></head>
