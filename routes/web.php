@@ -17,6 +17,13 @@ Route::get('/detail-category/{slug}', [App\Http\Controllers\FrontEnd\FrontEndCon
 
 Auth::routes();
 
+Route::middleware('auth')->group(function () {
+    Route::get('/cart', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'cart'])->name('cart');
+    Route::post('/addCart/{id}', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'addToCart'])->name('cart.add');
+    Route::delete('/deleteCart/{id}', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'deleteCart'])->name('cart.delete');
+    Route::post('/checkout', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'checkout'])->name('checkout');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
@@ -29,7 +36,7 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/my-transaction', MyTransactionController::class)->only(['index', 'show']);
     Route::resource('/transaction', TransactionController::class);
 });
-    
+
 Route::name('user.')->prefix('user')->middleware('user')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/change-password', [\App\Http\Controllers\User\DashboardController::class, 'changePassword'])->name('changePassword');

@@ -39,14 +39,17 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->name }}</td>
                             <td>
-                                <img src="{{ url('storage/category/', $row->image) }}" alt="{{ $row->name }}" class="img-thumbnail w-25">
+                                <img src="{{ url('storage/category/', $row->image) }}" alt="{{ $row->name }}"
+                                    class="img-thumbnail w-25">
                             </td>
                             <td>
-                                <button class="btn btn-warning" type="button" data-bs-toggle="modal" data-bs-target="#editModalCategory{{ $row->id }}">
+                                <button class="btn btn-warning" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#editModalCategory{{ $row->id }}">
                                     <i class="bi bi-pencil"></i>
                                 </button>
                                 @include('pages.admin.category.modal-edit')
-                                <form action="{{ route('admin.category.destroy', $row->id) }}" method="post" class="d-inline">
+                                <form action="{{ route('admin.category.destroy', $row->id) }}" method="post"
+                                    class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" type="submit">
@@ -77,7 +80,7 @@
                 if (input.file && input.files[0]) {
                     var reader = new FileReader();
 
-                    reader.onload = function(e){
+                    reader.onload = function(e) {
                         $prev.attr('src', e.target.result);
                     }
 

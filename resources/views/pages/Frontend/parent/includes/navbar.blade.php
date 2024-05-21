@@ -11,7 +11,7 @@
                     id="menu">
                     @foreach ($category as $item)
                         <li class="mx-3 py-6 md:py-0">
-                            <a href="#" class="text-black md:text-black hover:underline">{{ $item->name }}</a>
+                            <a href="{{ route('detail.category', $item->slug) }}" class="text-black md:text-black hover:underline">{{ $item->name }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -38,7 +38,7 @@
                                 </button>
                             </li>
                             <li class="ml-6">
-                                <a id="header-cart" href="cart.html"
+                                <a id="header-cart" href="{{ route('cart') }}"
                                     class="flex items-center justify-center w-8 h-8 text-black cart cart-filled">
                                     <svg class="fill-current" width="29" height="25" viewBox="0 0 29 25"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,7 +78,7 @@
                                 </button>
                             </li>
                             <li class="ml-6">
-                                <a id="header-cart" href="cart.html"
+                                <a id="header-cart" href="{{ route('cart') }}"
                                     class="flex items-center justify-center w-8 h-8 text-black cart cart-filled">
                                     <svg class="fill-current" width="29" height="25" viewBox="0 0 29 25"
                                         fill="none" xmlns="http://www.w3.org/2000/svg">
