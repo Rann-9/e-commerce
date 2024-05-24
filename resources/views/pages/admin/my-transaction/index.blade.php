@@ -31,6 +31,7 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Total Price</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -38,12 +39,29 @@
                     @forelse ($myTransaction as $row)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ auth()->user->name }}</td>
+                            <td>{{ auth()->user()->name }}</td>
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->email }}</td>
                             <td>{{ $row->phone }}</td>
-                            <td>{{ $row->total_price }}</td>
-                            <td>Action</td>
+                            <td>{{ number_format($row->total_price) }}</td>
+                            <td>
+                                @if ($row->status == 'Expired')
+                                    <span class="badge bg-danger">Expired</span>
+                                @elseif ($row->status == 'PENDING')
+                                    <span class="badge bg-warning">Pending</span>
+                                @elseif ($row->status == 'SETTLEMENT')
+                                    <span class="badge bg-info">Settlement</span>
+                                @else
+                                    <span class="badge bg-success">Success</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if (Auth::user()->role == 'admin')
+                                    <a href="{{ route('admin.my-transaction.showDataBySlugAndId', [$row->slug, $row->id]) }}" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                                @else
+                                <a href="{{ route('user.my-transaction.showDataBySlugAndId', [$row->slug, $row->id]) }}" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                                @endif
+                            </td>
                         </tr>
                     @empty
                     @endforelse
