@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,7 +22,7 @@ class DashboardController extends Controller
         return view('pages.admin.index', compact(
             'category',
             'product',
-            'user'
+            'user',
         ));
     }
 

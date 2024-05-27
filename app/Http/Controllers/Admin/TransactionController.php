@@ -61,7 +61,7 @@ class TransactionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // 
     }
 
     /**
@@ -69,7 +69,18 @@ class TransactionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $transaction = Transaction::findOrFail($id);
+
+        try {
+            $transaction->update([
+                'status' => $request->status
+            ]);
+
+            return redirect()->route('admin.transaction.index')->with('success', 'Berhasil');
+        } catch (\Exception $e) {
+            // dd($e->getMessage());
+            return redirect()->route('admin.transaction.index')->with('error', 'Gagal');
+        }
     }
 
     /**

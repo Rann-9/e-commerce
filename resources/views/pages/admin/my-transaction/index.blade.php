@@ -45,7 +45,7 @@
                             <td>{{ $row->phone }}</td>
                             <td>{{ number_format($row->total_price) }}</td>
                             <td>
-                                @if ($row->status == 'Expired')
+                                @if ($row->status == 'EXPIRED')
                                     <span class="badge bg-danger">Expired</span>
                                 @elseif ($row->status == 'PENDING')
                                     <span class="badge bg-warning">Pending</span>
