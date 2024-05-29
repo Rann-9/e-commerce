@@ -3,13 +3,14 @@
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\FrontEnd\FrontEndController;
 use App\Http\Controllers\Admin\MyTransactionController;
 use App\Http\Controllers\Admin\ProductGalleryController;
-use App\Http\Controllers\FrontEnd\FrontEndController;
 
 Route::get('/', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'index']);
 Route::get('/detail-product/{slug}', [App\Http\Controllers\FrontEnd\FrontEndController::class, 'detailProduct'])->name('detail.product');
@@ -36,6 +37,7 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/my-transaction', MyTransactionController::class)->only(['index']);
     Route::get('/my-transaction/{id}/{slug}', [MyTransactionController::class, 'showDataBySlugAndId'])->name('my-transaction.showDataBySlugAndId');
     Route::resource('/transaction', TransactionController::class);
+    Route::get('/transaction/{id}/{slug}', [TransactionController::class, 'showTransactionUserByAdminWithSlugAndId'])->name('transaction.showDataSlugAndId');
 });
 
 Route::name('user.')->prefix('user')->middleware('user')->group(function () {
@@ -44,4 +46,12 @@ Route::name('user.')->prefix('user')->middleware('user')->group(function () {
     Route::put('/update-password', [DashboardController::class, 'updatePassword'])->name('update-password');
     Route::resource('/my-transaction', MyTransactionController::class)->only(['index']);
     Route::get('/my-transaction/{id}/{slug}', [MyTransactionController::class, 'showDataBySlugAndId'])->name('my-transaction.showDataBySlugAndId');
+});
+
+// Route::Artisan Call
+Route::get('/artisan-call', function(){
+    Artisan::call('storage:link');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    return 'success';
 });
